@@ -1,16 +1,22 @@
+import { Link } from "react-router-dom"
+
 const Sidebar = () =>{ 
   const data = [
     {
       title: "All tasks",
+      link: "/",
     },
     {
       title: "Important tasks",
+      link: "/important-tasks",
     },
     {
       title: "Completed tasks",
+      link: "/completed-tasks",
     },
     {
       title: "Incompleted tasks",
+      link: "/incompleted-tasks",
     },
   ]
   return(
@@ -22,7 +28,12 @@ const Sidebar = () =>{
       </div>
       <div>
         {data.map((item,i)=>(
-          <div key={i} className="my-3">{item.title}</div>
+          <Link  className="my-3 flex items-center hover:bg-gray-600 rounded p2 duration-300 transition-all justify-center"
+          key={i}
+          to={item.link}
+          >
+            {item.title}
+          </Link>
         ))}
       </div>
       <div>
